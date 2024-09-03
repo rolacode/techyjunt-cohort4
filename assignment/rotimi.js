@@ -1,6 +1,7 @@
 const calculate = (num1, num2, operatn) => {
+  
   // Validate not null or undefined
-
+  
   if (num1 == null || num2 == null) {
       return 'Error: Invalid number.';
   }
