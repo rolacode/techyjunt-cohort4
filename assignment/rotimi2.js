@@ -58,7 +58,7 @@ class Library {
     if (book) {
       return `Found: '${book.title}' by ${book.author} (Available: ${book.available ? 'Yes' : 'No'})`;
     }
-    return `No book with title '${title}' found.`;
+    return `No book with this '${title}' found.`;
   }
 }
 
@@ -88,6 +88,15 @@ library.addBook(book1);
 library.addBook(book2);
 library.addBook(book3);
 
+console.log(library.findBookByTitle('Things fall apart'));
+library.downloadBook("0013006723");
+
+book2.borrowBook(); 
+library.downloadBook("0013006723");
+
+book2.returnBook();
+library.removeBook("0013006723");
+ 
 console.log(library.findBookByTitle('the gods are not to blame'));
 library.downloadBook("1133258076");
 
