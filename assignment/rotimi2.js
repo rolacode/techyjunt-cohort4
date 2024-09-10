@@ -58,7 +58,7 @@ class Library {
     if (book) {
       return `Found: '${book.title}' by ${book.author} (Available: ${book.available ? 'Yes' : 'No'})`;
     }
-    return `No book with this '${title}' found.`;
+    return `No book with title: '${title}' found.`;
   }
 }
 
@@ -84,24 +84,28 @@ const book2 = new Book('This fall apart', 'Chinua Achebe', '0013006723');
 const book3 = new Book('Open Heaven', 'Pastor E.A Adeboye', '1122334455')
 
 const library = new DigitalLibrary();
+// To add book into the library
 library.addBook(book1);
 library.addBook(book2);
 library.addBook(book3);
 
+//To search in the library
 console.log(library.findBookByTitle('Things fall apart'));
 library.downloadBook("0013006723");
+
+console.log(library.findBookByTitle('the gods are not to blame'));
+library.downloadBook("1133258076");
+
+// To borrow book and download from digital library
+book1.borrowBook(); 
+library.downloadBook("1234567890");
 
 book2.borrowBook(); 
 library.downloadBook("0013006723");
 
-book2.returnBook();
-library.removeBook("0013006723");
- 
-console.log(library.findBookByTitle('the gods are not to blame'));
-library.downloadBook("1133258076");
-
-book1.borrowBook(); 
-library.downloadBook("1234567890");
-
+// To return book and remove book by isbn
 book1.returnBook();
 library.removeBook("0987654321");
+
+book2.returnBook();
+library.removeBook("0013006723");
